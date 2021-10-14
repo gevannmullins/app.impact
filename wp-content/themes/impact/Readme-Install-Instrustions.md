@@ -29,17 +29,17 @@ _____________________________________
 ```
 
 
-- [ ] **Task 3**: Build the page using Gutenberg block editor
+- [x] **Task 3**: Build the page using Gutenberg block editor
 ```text
-* 
-
+* This task has been completed in Task2,
+However, I will create this page in the Block Editor so that it will display in the database as well.
 ```
 
 
-- [ ] **Task 4**: Create a WP custom post type for Case Studies
+- [X] **Task 4**: Create a WP custom post type for Case Studies
 (example content found on [impact.com/case-studies/](impact.com/case-studies/))
 ```text
-* 
+* Created a script in the functions.php file to dynamically add the "Case Studies" custom post type
 
 ```
 
