@@ -49,7 +49,8 @@ However, I will create this page in the Block Editor so that it will display in 
 * Description
 * Image
 ```text
-* 
+* Created the 3 fields required for the Case Studies custom post.
+* These fields now appear when creating/editing a Case Study.
 
 ```
 
