@@ -1,5 +1,16 @@
 <?php
 
+add_action( 'wp_enqueue_scripts', 'themeprefix_slick_enqueue_scripts_styles' );
+// Enqueue Slick scripts and styles
+function themeprefix_slick_enqueue_scripts_styles() {
+
+    wp_enqueue_script( 'slickjs', get_stylesheet_directory_uri() . '/assets/slick/slick.min.js', array( 'jquery' ), '1.6.0', true );
+    wp_enqueue_script( 'slickjs-init', get_stylesheet_directory_uri(). '/assets/js/slick-init.js', array( 'slickjs' ), '1.6.0', true );
+
+    wp_enqueue_style( 'slickcss', get_stylesheet_directory_uri() . '/assets/slick/slick.css', '1.6.0', 'all');
+    wp_enqueue_style( 'slickcsstheme', get_stylesheet_directory_uri(). '/assets/slick/slick-theme.css', '1.6.0', 'all');
+
+}
 
 /*Custom Post type start*/
 function post_type_impact_case_studies() {
@@ -36,8 +47,8 @@ add_action('init', 'post_type_impact_case_studies');
 
 
 // Register a slider block.
-add_action('acf/init', 'my_register_blocks');
-function my_register_blocks() {
+add_action('acf/init', 'impact_register_blocks');
+function impact_register_blocks() {
 
     // check function exists.
     if( function_exists('acf_register_block_type') ) {
@@ -82,4 +93,33 @@ if( function_exists('acf_register_block') ) {
 // Callback to render the testimonial ACF Block
 function image_carousel_block_html() {
 
+}
+
+
+// Register a slider block.
+add_action('acf/init', 'my_register_blocks');
+function my_register_blocks() {
+
+    // check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+        // register a testimonial block.
+        acf_register_block_type(array(
+            'name'              => 'impactSlider',
+            'title'             => __('ImpactSlider'),
+            'description'       => __('A custom slider block for impact.'),
+            'render_template'   => 'block-template-parts/blocks/slider/slider.php',
+            'category'          => 'formatting',
+            'icon' 				=> 'images-alt2',
+            'align'				=> 'full',
+            'enqueue_assets' 	=> function(){
+                wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/slick/slick.css', array(), '1.8.1' );
+                wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/assets/slick/slick-theme.css', array(), '1.8.1' );
+                wp_enqueue_script( 'slick', get_template_directory_uri() . '/assets/slick/slick.min.js', array('jquery'), '1.8.1', true );
+
+                wp_enqueue_style( 'block-slider', get_template_directory_uri() . '/block-template-parts/blocks/slider/slider.css', array(), '1.0.0' );
+                wp_enqueue_script( 'block-slider', get_template_directory_uri() . '/block-template-parts/blocks/slider/slider.js', array(), '1.0.0', true );
+            },
+        ));
+    }
 }

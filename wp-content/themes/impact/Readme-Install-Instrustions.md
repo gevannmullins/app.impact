@@ -71,10 +71,10 @@ However, I will create this page in the Block Editor so that it will display in 
 ```
 
 
-- [ ] **Task 8**: Work should be version controlled using git
+- [x] **Task 8**: Work should be version controlled using git
 * Share with us using any/your preferred hosted git platform
 ```text
-* 
+* Github repository has been created right from the start and work is pushed regularly.
 
 ```
 
