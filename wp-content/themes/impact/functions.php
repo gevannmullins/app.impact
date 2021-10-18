@@ -5,6 +5,7 @@
 function post_type_impact_case_studies() {
     $supports = array(
         'custom-fields', // custom fields
+        'block-templates'
     );
     $labels = array(
         'name' => _x('Case Studies', 'plural'),
@@ -25,11 +26,11 @@ function post_type_impact_case_studies() {
         'labels' => $labels,
         'public' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'impact'),
+        'rewrite' => array('slug' => 'case-studies'),
         'has_archive' => true,
         'hierarchical' => false,
     );
-    register_post_type('case_studies', $args);
+    register_post_type('case-studies', $args);
 }
 add_action('init', 'post_type_impact_case_studies');
 /*Custom Post type end*/
@@ -66,6 +67,164 @@ function impact_register_blocks() {
 
 }
 
+add_action('init', 'add_impact_fields');
+function add_impact_fields() {
+    if( function_exists('acf_add_local_field_group') ):
 
+        acf_add_local_field_group(array(
+            'key' => 'group_61697dce22beb',
+            'title' => 'Block: Impact Slider',
+            'fields' => array(
+                array(
+                    'key' => 'field_61697e00df16e',
+                    'label' => 'Slides',
+                    'name' => 'slides',
+                    'type' => 'repeater',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'collapsed' => '',
+                    'min' => 0,
+                    'max' => 0,
+                    'layout' => 'table',
+                    'button_label' => '',
+                    'sub_fields' => array(
+                        array(
+                            'key' => 'field_6169885cc218a',
+                            'label' => 'Case Studies',
+                            'name' => 'case_studies',
+                            'type' => 'post_object',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'post_type' => array(
+                                0 => 'case_studies',
+                            ),
+                            'taxonomy' => '',
+                            'allow_null' => 0,
+                            'multiple' => 0,
+                            'return_format' => 'object',
+                            'ui' => 1,
+                        ),
+                    ),
+                ),
+            ),
+            'location' => array(
+                array(
+                    array(
+                        'param' => 'block',
+                        'operator' => '==',
+                        'value' => 'acf/impactslider',
+                    ),
+                ),
+            ),
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'default',
+            'label_placement' => 'top',
+            'instruction_placement' => 'label',
+            'hide_on_screen' => '',
+            'active' => true,
+            'description' => '',
+        ));
+
+        acf_add_local_field_group(array(
+            'key' => 'group_6167d3bf3c826',
+            'title' => 'Case Study Field Group',
+            'fields' => array(
+                array(
+                    'key' => 'field_6167d3e369c4a',
+                    'label' => 'Title',
+                    'name' => 'title',
+                    'type' => 'text',
+                    'instructions' => 'Please enter a Case Study Title',
+                    'required' => 1,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'placeholder' => 'Title',
+                    'prepend' => '',
+                    'append' => '',
+                    'maxlength' => '',
+                ),
+                array(
+                    'key' => 'field_6167d41e69c4b',
+                    'label' => 'Description',
+                    'name' => 'description',
+                    'type' => 'textarea',
+                    'instructions' => 'Give your Case Study a Description',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'default_value' => '',
+                    'placeholder' => 'Describe your Case Study',
+                    'maxlength' => '',
+                    'rows' => '',
+                    'new_lines' => '',
+                ),
+                array(
+                    'key' => 'field_6167d4e669c4c',
+                    'label' => 'Image',
+                    'name' => 'image',
+                    'type' => 'image',
+                    'instructions' => '',
+                    'required' => 0,
+                    'conditional_logic' => 0,
+                    'wrapper' => array(
+                        'width' => '',
+                        'class' => '',
+                        'id' => '',
+                    ),
+                    'return_format' => 'id',
+                    'preview_size' => 'medium',
+                    'library' => 'all',
+                    'min_width' => '',
+                    'min_height' => '',
+                    'min_size' => '',
+                    'max_width' => '',
+                    'max_height' => '',
+                    'max_size' => '',
+                    'mime_types' => '',
+                ),
+            ),
+            'location' => array(
+                array(
+                    array(
+                        'param' => 'post_type',
+                        'operator' => '==',
+                        'value' => 'case_studies',
+                    ),
+                ),
+            ),
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'default',
+            'label_placement' => 'top',
+            'instruction_placement' => 'label',
+            'hide_on_screen' => '',
+            'active' => true,
+            'description' => '',
+        ));
+
+    endif;
+}
 
 
