@@ -3,7 +3,16 @@
 #### ***Local Enviroment / Setup***
 * Local Machine is a Mac - OSX: EL Capitan
 * Apache2.4, PHP7.4.1 and MySQL5.7.26 server configured and managed using Mamp
-* Mysql dump will be provided in the repository
+
+* Mysql dump is located in the Imapct theme's root directory.
+
+* Wordpress Host: http://app.impact.local
+* MySQL Host: localhost:3306
+* MySQL Database: app_impact_local
+* MySQL Username: admin
+* MySQL Password: admin
+* Wordpress Admin Username: admin
+* Wordpress Admin Password: 21@32B43c
 _____________________________________
 
 #### ***Assessment Tasks***
@@ -44,29 +53,36 @@ However, I will create this page in the Block Editor so that it will display in 
 ```
 
 
-- [ ] **Task 5**: Use *ACF* to add custom fields to step 4
+- [x] **Task 5**: Use *ACF* to add custom fields to step 4
 * Title
 * Description
 * Image
 ```text
 * Created the 3 fields required for the Case Studies custom post.
 * These fields now appear when creating/editing a Case Study.
+* Also, found out the I can add the fields dynamically from the functions.php file. Added the script to do just that for me,
+  Basic means that the ACF fields should be added when the theme is activated.
 
 ```
 
 
-- [ ] **Task 6**: Build a basic slider or carousel as an *ACF Block*
+- [x] **Task 6**: Build a basic slider or carousel as an *ACF Block*
 * To display 3 case studies created in (step 4)
 * Each item should link to the case study's permalink (display no page for this is required)
 ```text
-* 
+* Build a basic slider using Slick Slider.
+* Created another field using ACF that allows me to select any case study as a slide for my slider.
+* Styled the new field to display the Case Study Image to the left and the Title and Contents to the right.
+* Added the permalink to the Image only, for now. Still needing to add the permalink to the entire slide.
+* When the Image is clicked, the user is redirected to that Case Studies single post.
+* Created and styled the single post page to display the post when it is clicked.
 
 ```
 
 
-- [ ] **Task 7**: Add the case studies slider block (step 6) to the page (step 3)
+- [x] **Task 7**: Add the case studies slider block (step 6) to the page (step 3)
 ```text
-* 
+* Added the slider to the page in step 3. Was really easy to do once everything in step 6 was completed.
 
 ```
 
